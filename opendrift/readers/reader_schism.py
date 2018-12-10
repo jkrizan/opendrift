@@ -123,7 +123,7 @@ class Reader(BaseReader):
             self.name = name
 
         # Stavit cu false i sam raditi prostornu interpolaciju
-        self.return_block = False
+        self.return_block = True
 
         variable_aliases = {'dahv_u': 'x_sea_water_velocity',
                             'dahv_v': 'y_sea_water_velocity'}
@@ -182,7 +182,7 @@ class Reader(BaseReader):
         super(Reader, self).__init__()
 
 
-    def get_variables(self, requested_variables, time=None,
+    def get_variables_block_false(self, requested_variables, time=None,
                       x=None, y=None, z=None, block=False):
         """Method which must be invoked by any reader (subclass).
 
@@ -250,7 +250,7 @@ class Reader(BaseReader):
     
         
 
-    def get_variables_block_true(self, requested_variables, time=None,
+    def get_variables(self, requested_variables, time=None,
                       x=None, y=None, z=None, block=False):
         """Method which must be invoked by any reader (subclass).
 
